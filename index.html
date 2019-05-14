@@ -18,15 +18,22 @@
           'Type a noun'
         ];
 
+        // array to hold answers
+        var answers = [];
+
         // Keep track of current prompt
         var currentPrompt = 0;
 
         // Function to call the next prompt
         var nextPrompt = function() {
+            // if prompt is not zero add input value to array
+            if(currentPrompt != 0) {
+                answers.push($('input').val());
+            }
             // if there is a next prompt
             if(currentPrompt < prompts.length) {
                 // put prompt in all html elements with class prompt
-                $('.prompt').html(prompts[currentPrompt]);
+                $('.prompt').html(prompts[currentPrompt] + '<br><input type="text">');
                 // move the next prompt into variable currentPrompt
                 currentPrompt = currentPrompt + 1;
             }
@@ -34,6 +41,7 @@
             else {
                 // put a new message into the html
                 $('.prompt').html("that's all for now!");
+                alert(answers);
             }
         }
 
