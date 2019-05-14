@@ -5,14 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Mad Lib Style Game</title>
+    <script src=""></script>
 </head>
 <body>
+    <div class="prompt"></div>
+    <button>Next</button>
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
     <script>
         var prompts = [
           'Type your name',
           'Type an adjective',
           'Type a noun'
         ];
+
+        // Keep track of current prompt we're on
+        var currentPrompt = 0;
+        // put prompt in all html elements with class prompt
+        $('.prompt').html(prompts[currentPrompt]);
+
+        //
+
+        // run nextPrompt function when button is clicked
+        $('button').click(function(){
+            nextPrompt();
+        });
     </script>
 </body>
 </html>
