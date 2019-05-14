@@ -18,17 +18,24 @@
           'Type a noun'
         ];
 
-        // Keep track of current prompt we're on
+        // Keep track of current prompt
         var currentPrompt = 0;
-        // put prompt in all html elements with class prompt
-        $('.prompt').html(prompts[currentPrompt]);
 
-        //
+        // Function to call the next prompt
+        var nextPrompt = function() {
+            // put prompt in all html elements with class prompt
+            $('.prompt').html(prompts[currentPrompt]);
+            // move the next prompt into variable currentPrompt
+            currentPrompt = currentPrompt + 1;
+        }
 
         // run nextPrompt function when button is clicked
         $('button').click(function(){
             nextPrompt();
         });
+
+        // Show the first prompt as soon as js loads
+        nextPrompt();
     </script>
 </body>
 </html>
